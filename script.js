@@ -1,35 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Header Scroll Effect
-    const header = document.getElementById('header');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.padding = '10px 0';
-            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-        } else {
-            header.style.padding = '20px 0';
-            header.style.boxShadow = 'none';
-        }
-    });
 
-    // Mobile Menu
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-    const closeMenu = document.querySelector('.close-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-
-    function toggleMenu() {
-        mobileMenuOverlay.classList.toggle('active');
-        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : 'auto';
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-    closeMenu.addEventListener('click', toggleMenu);
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', toggleMenu);
-    });
 
     // Reveal Animations on Scroll
     const revealElements = document.querySelectorAll('.reveal-on-scroll, .fade-in-up');
