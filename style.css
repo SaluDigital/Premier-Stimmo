@@ -695,6 +695,38 @@ header .container {
     text-align: center;
 }
 
+/* Vision 2026 Section */
+#vision-2026 .subtitle-2026 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 25px;
+    font-family: var(--font-heading);
+}
+
+#vision-2026 .content-2026 p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--text-gray);
+}
+
+#vision-2026 .video-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mt-30 {
+    margin-top: 30px !important;
+}
+
+@media (max-width: 992px) {
+    #vision-2026 .video-block {
+        margin-bottom: 40px;
+    }
+}
+
+
 /* Footer */
 footer {
     background-color: #1a1a1a;
