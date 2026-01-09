@@ -1202,3 +1202,48 @@ footer {
     display: flex;
     gap: 5px;
 }
+
+/* Store Visit Section */
+.store-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.store-img {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.store-img:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.store-img img {
+    width: 100%;
+    height: 300px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+}
+
+.store-invite-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+}
+
+@media (max-width: 768px) {
+    .store-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .store-img img {
+        height: auto;
+        aspect-ratio: 4/3;
+    }
+}
