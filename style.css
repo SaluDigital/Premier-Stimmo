@@ -318,6 +318,14 @@ header .container {
 }
 
 /* Process Section */
+#process {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('process-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
 .bg-light {
     background-color: var(--bg-light);
 }
@@ -327,14 +335,25 @@ header .container {
     margin: 0 auto 60px;
 }
 
-.section-header h3 {
+/* Override header colors for dark background in this section */
+#process .section-header h3 {
     font-size: 2.2rem;
     margin: 15px 0;
+    color: white;
 }
 
-.section-header p {
-    color: var(--text-gray);
+#process .section-header p {
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1.1rem;
+}
+
+#process .section-tag {
+    /* Keep primary color or make it lighter/white? Primary stands out well on dark. */
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+    /* Subtle pill bg for better readability */
+    padding: 5px 15px;
+    border-radius: 20px;
 }
 
 .process-grid {
@@ -345,10 +364,12 @@ header .container {
 
 .process-card {
     background: white;
+    /* Keep white for contrast */
     padding: 30px 20px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow */
     transition: var(--transition);
 }
 
