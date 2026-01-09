@@ -778,7 +778,36 @@ header .container {
     grid-row: span 1;
 }
 
-/* Design Kids */
+/* Mixed 5 (Large) */
+.lifestyle-gallery .gallery-item:nth-child(11) {
+    grid-column: span 8;
+    grid-row: span 2;
+}
+
+/* Kids 1 */
+.lifestyle-gallery .gallery-item:nth-child(12) {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Mixed 5 */
+.lifestyle-gallery .gallery-item:nth-child(13) {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Bedroom */
+.lifestyle-gallery .gallery-item:nth-child(14) {
+    grid-column: span 6;
+    grid-row: span 2;
+}
+
+/* Kids 2 */
+.lifestyle-gallery .gallery-item:nth-child(15) {
+    grid-column: span 6;
+    grid-row: span 2;
+}
+
 
 @media (max-width: 992px) {
     .lifestyle-gallery {
@@ -792,7 +821,10 @@ header .container {
     }
 
     .lifestyle-gallery .gallery-item:nth-child(1),
-    .lifestyle-gallery .gallery-item:nth-child(6) {
+    .lifestyle-gallery .gallery-item:nth-child(6),
+    .lifestyle-gallery .gallery-item:nth-child(11),
+    .lifestyle-gallery .gallery-item:nth-child(14),
+    .lifestyle-gallery .gallery-item:nth-child(15) {
         grid-column: span 6 !important;
         grid-row: span 2 !important;
     }
