@@ -420,45 +420,18 @@ header .container {
     grid-row: span 2;
 }
 
-.gallery-item:nth-child(2) {
-    grid-column: span 3;
-    grid-row: span 1;
-}
-
-.gallery-item:nth-child(3) {
-    grid-column: span 3;
-    grid-row: span 1;
-}
-
-.gallery-item:nth-child(4) {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
-.gallery-item:nth-child(5) {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
+/* Uniform 3x2 Grid Layout for 6 items */
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(3),
+.gallery-item:nth-child(4),
+.gallery-item:nth-child(5),
 .gallery-item:nth-child(6) {
     grid-column: span 2;
     grid-row: span 1;
 }
 
-.gallery-item:nth-child(7) {
-    grid-column: span 3;
-    grid-row: span 1;
-}
-
-.gallery-item:nth-child(8) {
-    grid-column: span 3;
-    grid-row: span 1;
-}
-
-.gallery-item:nth-child(9) {
-    grid-column: span 6;
-    grid-row: span 1;
-}
+/* Remove old leftover rules if needed or override them above */
 
 @media (max-width: 992px) {
     .showroom-gallery {
