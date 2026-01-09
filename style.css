@@ -1256,6 +1256,16 @@ footer {
     object-fit: cover;
 }
 
+/* Store Feature Image Override */
+.store-feature-img img {
+    max-width: 100% !important;
+    /* Override the 50% default from .image-block */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
 .store-invite-text {
     font-size: 1.3rem;
     font-weight: 500;
