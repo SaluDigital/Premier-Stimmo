@@ -590,6 +590,10 @@ header .container {
     font-size: 1.1rem;
 }
 
+.stars i {
+    margin-right: 3px;
+}
+
 .testimonial-card p {
     font-style: italic;
     color: var(--text-gray);
