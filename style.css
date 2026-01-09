@@ -1190,3 +1190,15 @@ footer {
 .gallery-item {
     cursor: zoom-in;
 }
+
+/* Header Stars */
+.header-stars {
+    justify-content: center;
+    margin-top: -15px;
+    /* Pull closer to title */
+    margin-bottom: 40px;
+    font-size: 1.4rem;
+    /* Larger than card stars */
+    display: flex;
+    gap: 5px;
+}
