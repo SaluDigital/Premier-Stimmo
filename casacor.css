@@ -11,6 +11,10 @@
     color: var(--text-dark);
 }
 
+#casacor .section-header h3 span.highlight-red {
+    color: var(--primary-color);
+}
+
 #casacor .section-header p {
     font-size: 1.1rem;
     color: var(--text-gray);
@@ -99,20 +103,9 @@
     }
 
     .casacor-item.landscape {
-        grid-column: span 1;
-        /* Force grid wrap if needed, or stick to 2 cols */
-        height: 250px;
-    }
-
-    /* Make the last odd item span full width if we have 5 items (3+2) */
-    /* 1, 2 top row. 3 full width? Or just keep 2 cols. */
-    /* Let's make portrait items span 1, landscape span 2? */
-
-    .casacor-item.landscape {
         grid-column: span 2;
     }
 
-    /* If we have 3 portraits, the 3rd one needs handling. */
     .casacor-item.portrait:nth-child(3) {
         grid-column: span 2;
         /* Main portrait feature on tablet */
