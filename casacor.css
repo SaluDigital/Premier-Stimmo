@@ -12,7 +12,7 @@
 }
 
 #casacor .section-header h3 span.highlight-red {
-    color: var(--primary-color);
+    color: #A82024 !important;
 }
 
 #casacor .section-header p {
