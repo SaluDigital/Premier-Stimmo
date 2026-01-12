@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Attach to all gallery items
-    const galleries = ['.showroom-gallery', '.lifestyle-gallery'];
+    const galleries = ['.showroom-gallery', '.lifestyle-gallery', '.casacor-gallery'];
 
     galleries.forEach(selector => {
         const galleryContainer = document.querySelector(selector);
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alt: img.getAttribute('alt')
             }));
 
-            galleryContainer.querySelectorAll('.gallery-item').forEach((item, index) => {
+            galleryContainer.querySelectorAll('.gallery-item, .casacor-item').forEach((item, index) => {
                 item.addEventListener('click', () => openLightbox(index, images));
             });
         }

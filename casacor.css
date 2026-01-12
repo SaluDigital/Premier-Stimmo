@@ -1,0 +1,98 @@
+/* CASACOR Section Styles */
+#casacor {
+    background-color: #fff;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#casacor .section-header h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+#casacor .section-header p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.casacor-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 250px);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.casacor-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+}
+
+.casacor-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.casacor-item.main-item {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    /* Spans full height */
+}
+
+.casacor-item:hover img {
+    transform: scale(1.08);
+}
+
+.casacor-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.casacor-item:hover .overlay {
+    opacity: 1;
+}
+
+.casacor-item .overlay i {
+    color: white;
+    font-size: 2rem;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.casacor-item:hover .overlay i {
+    transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    .casacor-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .casacor-item.main-item {
+        grid-column: auto;
+        grid-row: auto;
+        height: 300px;
+    }
+
+    .casacor-item {
+        height: 250px;
+    }
+}
