@@ -20,8 +20,8 @@
 
 .casacor-gallery {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(2, 250px);
+    grid-template-columns: repeat(6, 1fr);
+    /* 6 column flexible grid */
     gap: 20px;
     margin-top: 50px;
 }
@@ -41,14 +41,22 @@
     transition: transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
 }
 
-.casacor-item.main-item {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-    /* Spans full height */
-}
-
 .casacor-item:hover img {
     transform: scale(1.08);
+}
+
+/* Portrait items take 2 columns each (3 items per row of 6 cols) */
+.casacor-item.portrait {
+    grid-column: span 2;
+    height: 400px;
+    /* Taller for portrait */
+}
+
+/* Landscape items take 3 columns each (2 items per row of 6 cols) */
+.casacor-item.landscape {
+    grid-column: span 3;
+    height: 350px;
+    /* Slightly shorter or standard for landscape */
 }
 
 .casacor-item .overlay {
@@ -80,19 +88,47 @@
     transform: scale(1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+    .casacor-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .casacor-item.portrait {
+        grid-column: span 1;
+        height: 350px;
+    }
+
+    .casacor-item.landscape {
+        grid-column: span 1;
+        /* Force grid wrap if needed, or stick to 2 cols */
+        height: 250px;
+    }
+
+    /* Make the last odd item span full width if we have 5 items (3+2) */
+    /* 1, 2 top row. 3 full width? Or just keep 2 cols. */
+    /* Let's make portrait items span 1, landscape span 2? */
+
+    .casacor-item.landscape {
+        grid-column: span 2;
+    }
+
+    /* If we have 3 portraits, the 3rd one needs handling. */
+    .casacor-item.portrait:nth-child(3) {
+        grid-column: span 2;
+        /* Main portrait feature on tablet */
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
     .casacor-gallery {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
     }
 
-    .casacor-item.main-item {
-        grid-column: auto;
-        grid-row: auto;
+    .casacor-item.portrait,
+    .casacor-item.landscape,
+    .casacor-item.portrait:nth-child(3) {
+        grid-column: span 1;
         height: 300px;
-    }
-
-    .casacor-item {
-        height: 250px;
     }
 }
