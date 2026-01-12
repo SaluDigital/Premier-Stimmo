@@ -125,3 +125,66 @@
         height: 300px;
     }
 }
+
+/* Updated Header Layout for CASACOR Seal */
+.casacor-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    /* Increased to accommodate side-by-side */
+    margin: 0 auto 60px;
+    text-align: left;
+    /* Reset from potential text-center inheritance */
+}
+
+.casacor-header-content {
+    flex: 1;
+    text-align: right;
+    /* Text aligns towards the stamp */
+}
+
+.casacor-header-content h3 {
+    margin-bottom: 15px;
+}
+
+.casacor-header-content p {
+    margin-left: auto;
+    /* Push p to the right side of its container */
+    margin-right: 0;
+}
+
+.casacor-header-stamp {
+    flex-shrink: 0;
+}
+
+.casacor-header-stamp img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: contain;
+    /* Ensure the whole stamp is visible */
+    background-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.casacor-header-stamp:hover img {
+    transform: scale(1.05) rotate(5deg);
+}
+
+@media (max-width: 768px) {
+    .casacor-header-container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .casacor-header-content {
+        text-align: center;
+    }
+
+    .casacor-header-content p {
+        margin: 0 auto;
+    }
+}
