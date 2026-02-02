@@ -43,6 +43,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        :root {
+            --primary-color: #25d366;
+            --primary-dark: #128c7e;
+            --brand-red: #A82024;
+            --brand-red-dark: #82181B;
+        }
+
+        /* Keep titles, subtitles and icons in brand red */
+        .section-tag,
+        .section-header h3 span.highlight-red,
+        #vision-2026 .subtitle-2026,
+        .store-invite-text,
+        .diff-number,
+        .icon-box,
+        .feature-item i,
+        .contact-list i {
+            color: var(--brand-red) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark) !important;
+            border-color: var(--primary-dark) !important;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3) !important;
+        }
+
+        .btn-outline {
+            color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color) !important;
+            color: #fff !important;
+        }
+
         /* Lead Modal Styles */
         .modal-overlay {
             position: fixed;
@@ -139,7 +179,7 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(168, 32, 36, 0.1);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
         }
 
         select.form-control {
@@ -193,7 +233,11 @@
         .btn-submit:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(168, 32, 36, 0.2);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3) !important;
         }
 
         .btn-submit:disabled {
