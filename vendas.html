@@ -63,14 +63,15 @@
         }
 
         .btn-primary {
-            background-color: var(--primary-color) !important;
-            border-color: var(--primary-color) !important;
+            background-color: #25d366 !important;
+            border-color: #25d366 !important;
+            box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.39) !important;
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark) !important;
-            border-color: var(--primary-dark) !important;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3) !important;
+            background-color: #128c7e !important;
+            border-color: #128c7e !important;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.23) !important;
         }
 
         .btn-outline {
@@ -908,17 +909,17 @@
             const data = Object.fromEntries(formData.entries());
 
             // Prepare WhatsApp Message
-            let message = `Olá, vim através de anúncios do Google, gostaria de solicitar um orçamento.%0A%0A`;
-            message += `*Nome:* ${data.nome}%0A`;
-            message += `*WhatsApp:* ${data.whatsapp}%0A`;
-            message += `*Ambiente:* ${data.ambiente}%0A`;
-            message += `*Pronto:* ${data.pronto}%0A`;
+            let text = `Olá, vim através de anúncios do Google, gostaria de solicitar um orçamento.\n\n`;
+            text += `*Nome:* ${data.nome}\n`;
+            text += `*WhatsApp:* ${data.whatsapp}\n`;
+            text += `*Ambiente:* ${data.ambiente}\n`;
+            text += `*Pronto:* ${data.pronto}\n`;
             if (data.prazo) {
-                message += `*Prazo:* ${data.prazo}%0A`;
+                text += `*Prazo:* ${data.prazo}\n`;
             }
-            message += `*Investimento:* ${data.investimento}`;
+            text += `*Investimento:* ${data.investimento}`;
 
-            const whatsappUrl = `https://wa.me/5541991539927?text=${message}`;
+            const whatsappUrl = `https://wa.me/5541991539927?text=${encodeURIComponent(text)}`;
 
             // Send to Email via FormSubmit (AJAX)
             try {
