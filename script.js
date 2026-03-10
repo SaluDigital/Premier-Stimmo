@@ -1,3 +1,16 @@
+// Função para capturar parâmetros UTM da URL e salvar no sessionStorage
+(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    utms.forEach(utm => {
+        const value = urlParams.get(utm);
+        // Filter out Google Ads placeholders like {campaignid}, {campaignname}, etc.
+        if (value && !value.includes('{') && !value.includes('}')) {
+            sessionStorage.setItem(utm, value);
+        }
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
 

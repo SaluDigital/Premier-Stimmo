@@ -944,6 +944,12 @@
 
             // INTEGRATION WITH SELLBOT WEBHOOK
             try {
+                const getCleanUTM = (key, defaultValue = "") => {
+                    const value = sessionStorage.getItem(key);
+                    if (!value || value.includes('{') || value.includes('}')) return defaultValue;
+                    return value;
+                };
+
                 const sellbotData = {
                     ...data,
                     first_name: data.nome,
@@ -951,12 +957,12 @@
                     sb_form_url: window.location.href,
                     client_uuid: "41763f4b-bfdf-4ced-bd9c-dc97e64cea69",
                     wpp_session: "premier_stimmo_moveis_planejad_qgcp",
-                    campaign: "standard",
-                    utm_source: sessionStorage.getItem("utm_source") || "",
-                    utm_medium: sessionStorage.getItem("utm_medium") || "",
-                    utm_campaign: sessionStorage.getItem("utm_campaign") || "",
-                    utm_content: sessionStorage.getItem("utm_content") || "",
-                    utm_term: sessionStorage.getItem("utm_term") || "",
+                    campaign: getCleanUTM("utm_campaign", "standard"),
+                    utm_source: getCleanUTM("utm_source"),
+                    utm_medium: getCleanUTM("utm_medium"),
+                    utm_campaign: getCleanUTM("utm_campaign", "standard"),
+                    utm_content: getCleanUTM("utm_content"),
+                    utm_term: getCleanUTM("utm_term"),
                     referrer: document.referrer || ""
                 };
 

@@ -483,6 +483,12 @@
 
                 // 2. Integration with Sellbot Webhook
                 try {
+                    const getCleanUTM = (key, defaultValue = "") => {
+                        const value = sessionStorage.getItem(key);
+                        if (!value || value.includes('{') || value.includes('}')) return defaultValue;
+                        return value;
+                    };
+
                     await fetch("https://hooks.sellbot.tech/plugin", {
                         method: "POST",
                         headers: {
@@ -491,10 +497,18 @@
                         },
                         body: JSON.stringify({
                             ...data,
+                            first_name: data.nome,
+                            phone: data.whatsapp,
                             client_uuid: "41763f4b-bfdf-4ced-bd9c-dc97e64cea69",
                             wpp_session: "premier_stimmo_moveis_planejad_qgcp",
-                            campaign: "standard",
-                            sb_form_url: window.location.href
+                            campaign: getCleanUTM("utm_campaign", "standard"),
+                            sb_form_url: window.location.href,
+                            utm_source: getCleanUTM("utm_source"),
+                            utm_medium: getCleanUTM("utm_medium"),
+                            utm_campaign: getCleanUTM("utm_campaign", "standard"),
+                            utm_content: getCleanUTM("utm_content"),
+                            utm_term: getCleanUTM("utm_term"),
+                            referrer: document.referrer || ""
                         })
                     });
                 } catch (error) {
@@ -529,6 +543,7 @@
             });
         }
     </script>
+    <script src="script.js"></script>
     <script src="https://plugin.sellbot.tech/assets/js/sellbot_plugin.min.js"></script>
 </body>
 
