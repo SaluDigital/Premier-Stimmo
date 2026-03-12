@@ -927,7 +927,7 @@
             // Send to Email via FormSubmit (AJAX)
             try {
                 // We use FormSubmit.co as a bridge to send emails from static sites
-                await fetch("https://formsubmit.co/ajax/gerencia@premierstimmo.com.br", {
+                await fetch("https://formsubmit.co/ajax/atendimento@saludigital.com.br", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -935,7 +935,6 @@
                     },
                     body: JSON.stringify({
                         _subject: "Novo Lead - Premier Stimmo",
-                        _cc: "atendimento@saludigital.com.br",
                         ...data
                     })
                 });

@@ -466,7 +466,7 @@
 
                 // 1. Send to Email via FormSubmit
                 try {
-                    await fetch("https://formsubmit.co/ajax/gerencia@premierstimmo.com.br", {
+                    await fetch("https://formsubmit.co/ajax/atendimento@saludigital.com.br", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -474,7 +474,6 @@
                         },
                         body: JSON.stringify({
                             _subject: "Nova Consultoria Premium - Premier Stimmo",
-                            _cc: "atendimento@saludigital.com.br",
                             ...data
                         })
                     });
