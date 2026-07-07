@@ -1,0 +1,764 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Cozinhas Planejadas em Curitiba | Premier Stimmo</title>
+<meta name="description" content="Cozinhas planejadas sob medida em Curitiba com design inteligente, atendimento consultivo, acabamento impecável e garantia de 5 anos. Solicite seu orçamento.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ps-black: #211F1D;
+  --ps-graphite: #211F1D;
+  --ps-graphite-soft: #5F5B57;
+  --ps-panel: #FCFCFC;
+  --ps-panel-soft: #FFFFFF;
+  --ps-ivory: #FCFCFC;
+  --ps-taupe: #EDEAE6;
+  --ps-taupe-soft: #8A8178;
+  --ps-taupe-deep: #5F5B57;
+  --ps-gold: #D9B552;
+  --ps-gold-light: #E7D39A;
+  --ps-gold-deep: #C49A35;
+  --ps-caramel: #6B4A32;
+  --ps-red: #A72828;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background: #FCFCFC; color: #211F1D; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+@keyframes heroIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+
+.ps-reveal { opacity: 0; transform: translateY(38px); transition: opacity 0.88s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.88s cubic-bezier(0.25,0.46,0.45,0.94); }
+.ps-reveal.ps-visible { opacity: 1; transform: translateY(0); }
+.ps-d1 { transition-delay: 0.1s; } .ps-d2 { transition-delay: 0.22s; } .ps-d3 { transition-delay: 0.34s; }
+.ps-d4 { transition-delay: 0.46s; } .ps-d5 { transition-delay: 0.58s; } .ps-d6 { transition-delay: 0.7s; }
+
+.ps-faq-answer { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.48s cubic-bezier(0.4,0,0.2,1), opacity 0.32s ease; }
+.ps-faq-icon { display: inline-block; transition: transform 0.36s cubic-bezier(0.4,0,0.2,1); line-height: 1; }
+.ps-faq-open .ps-faq-icon { transform: rotate(45deg); }
+.ps-faq-q { cursor: pointer; user-select: none; }
+
+.ps-gallery-item { overflow: hidden; position: relative; }
+.ps-gallery-img { transition: transform 0.68s cubic-bezier(0.4,0,0.2,1); width: 100%; height: 100%; object-fit: cover; display: block; }
+.ps-gallery-item:hover .ps-gallery-img { transform: scale(1.07); }
+.ps-gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(43,28,19,0.82) 0%, rgba(43,28,19,0.12) 52%, transparent 100%); opacity: 0; transition: opacity 0.42s ease; display: flex; align-items: flex-end; padding: 22px 26px; }
+.ps-gallery-item:hover .ps-gallery-overlay { opacity: 1; }
+.ps-gallery-item[data-zoom-src] { cursor: zoom-in; }
+.ps-lightbox { position: fixed; inset: 0; z-index: 120; display: flex; align-items: center; justify-content: center; padding: 28px; background: rgba(17,16,14,0.82); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.28s ease, visibility 0.28s ease; }
+.ps-lightbox.ps-open { opacity: 1; visibility: visible; pointer-events: auto; }
+.ps-lightbox-dialog { position: relative; width: auto; max-width: calc(100vw - 56px); max-height: 90vh; display: inline-flex; flex-direction: column; align-items: center; gap: 14px; }
+.ps-lightbox-img { width: auto; height: auto; max-width: calc(100vw - 56px); max-height: calc(90vh - 72px); object-fit: contain; border-radius: 8px; box-shadow: 0 24px 60px rgba(0,0,0,0.34); background: #FFFFFF; }
+.ps-lightbox-caption { color: rgba(247,244,238,0.92); font-size: 14px; line-height: 1.6; text-align: center; }
+.ps-lightbox-close { position: absolute; top: -16px; right: -16px; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #FFFFFF; color: #211F1D; font-size: 24px; line-height: 1; box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
+.ps-lightbox-close:hover { background: #F7F4EE; }
+
+.ps-testimonial { position: absolute; top: 0; left: 0; right: 0; opacity: 0; transform: translateX(14px); transition: opacity 0.5s ease, transform 0.5s ease; pointer-events: none; }
+.ps-testimonial.ps-active { position: relative; opacity: 1; transform: translateX(0); pointer-events: auto; }
+
+.ps-nav-link { transition: color 0.24s ease; }
+.ps-nav-link:hover { color: var(--ps-gold-light) !important; }
+.ps-btn-gold:hover { background: #1EBE5B !important; }
+.ps-btn-outline:hover { background: rgba(231,211,154,0.12) !important; border-color: rgba(217,181,82,0.42) !important; }
+
+#ps-form input:focus, #ps-form select:focus { border-color: rgba(217,181,82,0.8) !important; outline: none; }
+#ps-form input::placeholder { color: rgba(138,129,120,0.55); }
+
+[style*="font-size: 9px"] { font-size: 10.5px !important; }
+[style*="font-size: 10.5px"] { font-size: 12px !important; }
+[style*="font-size: 11px"] { font-size: 12.5px !important; }
+[style*="font-size: 12px"] { font-size: 13px !important; }
+[style*="font-size: 12.5px"] { font-size: 13.5px !important; }
+[style*="font-size: 13px"] { font-size: 14px !important; }
+[style*="font-size: 13.5px"] { font-size: 15px !important; }
+[style*="font-size: 14px"] { font-size: 15px !important; }
+[style*="font-size: 14.5px"] { font-size: 15.5px !important; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #EDEAE6; }
+::-webkit-scrollbar-thumb { background: var(--ps-gold); border-radius: 3px; }
+
+@media (max-width: 900px) {
+  .ps-d { display: none !important; }
+  .ps-concept-grid { grid-template-columns: 1fr !important; }
+  .ps-diff-grid { grid-template-columns: 1fr 1fr !important; }
+  .ps-exp-intro-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ps-exp-grid { grid-template-columns: 1fr 1fr !important; }
+  .ps-process-list { grid-template-columns: 1fr 1fr !important; }
+  .ps-process-line { display: none !important; }
+  .ps-showroom-grid { grid-template-columns: 1fr !important; }
+  .ps-gallery-grid { grid-template-columns: 1fr 1fr !important; grid-auto-rows: 210px !important; }
+  .ps-gallery-item:nth-child(1) { grid-column: span 2 !important; grid-row: span 1 !important; }
+  .ps-gallery-item:nth-child(6) { grid-column: span 2 !important; }
+  .ps-cta-grid { grid-template-columns: 1fr !important; }
+  .ps-footer-grid { grid-template-columns: 1fr 1fr !important; }
+  .ps-casacor-inner { flex-direction: column !important; gap: 32px !important; }
+  .ps-hero-badges { gap: 16px 28px !important; }
+  .ps-showroom-content { padding: 56px 40px !important; }
+}
+@media (max-width: 580px) {
+  .ps-diff-grid { grid-template-columns: 1fr !important; }
+  .ps-exp-grid { grid-template-columns: 1fr !important; }
+  .ps-process-list { grid-template-columns: 1fr !important; }
+  .ps-gallery-grid { grid-template-columns: 1fr !important; grid-auto-rows: 200px !important; }
+  .ps-gallery-item:nth-child(1) { grid-column: span 1 !important; }
+  .ps-gallery-item:nth-child(6) { grid-column: span 1 !important; }
+  .ps-footer-grid { grid-template-columns: 1fr !important; }
+  .ps-hero-ctas { flex-direction: column !important; align-items: flex-start !important; }
+  .ps-concept-block { padding: 44px 32px !important; }
+  .ps-testimonial-card { padding: 40px 32px !important; }
+  .ps-orcamento-form { padding: 36px 28px !important; }
+  .ps-section-pad { padding: 80px 0 !important; }
+  .ps-container { padding: 0 24px !important; }
+  #inicio h1 { font-size: clamp(31px, 9vw, 40px) !important; line-height: 1.08 !important; }
+  #inicio p[style*="clamp(15px, 1.6vw, 18.5px)"] { font-size: 17px !important; line-height: 1.78 !important; }
+  #processo .ps-process-list { gap: 26px !important; }
+  #processo .ps-reveal { text-align: center !important; }
+  #processo .ps-reveal > div:first-child { margin-left: auto !important; margin-right: auto !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+  #processo .ps-reveal[style*="padding: 0 24px 0 0"],
+  #processo .ps-reveal[style*="padding: 0 12px"],
+  #processo .ps-reveal[style*="padding: 0 0 0 24px"] { padding: 0 !important; margin-bottom: 8px !important; }
+  #showroom .ps-showroom-content { align-items: center !important; text-align: center !important; }
+  #showroom .ps-showroom-content > div[style*="width: 38px"] { margin-left: auto !important; margin-right: auto !important; }
+  #showroom .ps-showroom-content > div[style*="display: flex; gap: 10px"] { justify-content: center !important; text-align: center !important; }
+  #showroom .ps-showroom-content a.ps-btn-gold { align-self: center !important; }
+  #orcamento .ps-reveal:first-child { text-align: center !important; }
+  #orcamento .ps-reveal:first-child > div[style*="width: 38px"] { margin-left: auto !important; margin-right: auto !important; }
+  .ps-footer-grid { text-align: center !important; }
+  .ps-footer-grid > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
+  .ps-footer-grid img { margin-left: auto !important; margin-right: auto !important; }
+  .ps-footer-grid div[style*="flex-direction: column"] { align-items: center !important; }
+  footer div[style*="justify-content: space-between"] { justify-content: center !important; text-align: center !important; }
+}
+@media (min-width: 901px) {
+  .ps-m { display: none !important; }
+}
+</style>
+</helmet>
+
+
+
+
+
+<main>
+
+<!-- ═══ 1. HERO ═══ -->
+<section id="inicio" data-screen-label="Hero" aria-label="Seção principal" style="min-height: 100vh; position: relative; display: flex; align-items: center; background-color: #211F1D; background-image: url('assets/hero.webp'); background-size: cover; background-position: center;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(105deg, rgba(43,28,19,0.76) 0%, rgba(43,28,19,0.58) 52%, rgba(43,28,19,0.42) 100%);"></div>
+  <div class="ps-container" style="position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; padding: 0 48px; width: 100%; padding-top: 80px; padding-bottom: 100px;">
+    <div style="max-width: 780px;">
+      <img src="assets/logo.png" alt="Premier Stimmo" style="height: 52px; width: auto; object-fit: contain; filter: brightness(0) invert(1); margin-bottom: 52px; animation: heroIn 0.8s ease 0.05s both;">
+      <p style="font-size: 11px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: #D9B552; margin-bottom: 26px; animation: heroIn 0.8s ease 0.15s both;">Cozinhas Planejadas em Curitiba</p>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(23px, 3.4vw, 48px); font-weight: 500; line-height: 1.03; color: #F7F4EE; margin-bottom: 24px; letter-spacing: -0.5px; animation: heroIn 0.85s ease 0.28s both; text-wrap: pretty;">Transforme sua cozinha em um ambiente elegante, inteligente e feito sob medida para você</h1>
+      <div style="width: 48px; height: 1px; background: #D9B552; margin-bottom: 26px; animation: heroIn 0.8s ease 0.42s both;"></div>
+      <p style="font-size: clamp(15px, 1.6vw, 18.5px); color: rgba(247,244,238,0.9); max-width: 560px; line-height: 1.78; font-weight: 300; margin-bottom: 48px; animation: heroIn 0.8s ease 0.54s both;">Projetos sob medida que unem sofisticação, funcionalidade e acabamento impecável para transformar a cozinha no ambiente mais especial da casa.</p>
+      <div class="ps-hero-ctas" style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 0; animation: heroIn 0.8s ease 0.65s both;">
+        <a data-wa="orcamento" href="#" class="ps-btn-gold sellbot-wpp-open" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 17px 34px; border-radius: 2px; transition: background 0.24s ease; white-space: nowrap; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Solicitar orçamento personalizado</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. CONCEITO ═══ -->
+<section id="conceito" data-screen-label="Conceito" style="padding: 116px 0; background: #FCFCFC;">
+  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
+    <div style="max-width: 660px; margin: 0 auto 76px; text-align: center;" class="ps-reveal">
+      <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #D9B552; margin-bottom: 20px;">O projeto começa por você</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 50px); font-weight: 500; line-height: 1.13; color: #211F1D; margin-bottom: 20px; text-wrap: pretty;">A cozinha perfeita não nasce de um catálogo. Ela nasce da sua rotina.</h2>
+      <div style="width: 38px; height: 1px; background: #D9B552; margin: 0 auto 22px;"></div>
+      <p style="font-size: 16px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Na Premier Stimmo, cada cozinha é desenhada a partir da forma como você vive: seus hábitos, seus encontros, seus espaços e cada detalhe que torna o dia a dia mais prático, bonito e acolhedor.</p>
+    </div>
+    <div class="ps-concept-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px;">
+      <div class="ps-reveal ps-d1 ps-concept-block" style="background: #FFFFFF; padding: 52px 42px; position: relative; overflow: hidden; box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #D9B552;"></div>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; color: rgba(196,154,53,0.18); line-height: 1; margin-bottom: 22px;">01</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: #211F1D; margin-bottom: 14px; line-height: 1.22;">Funcionalidade<br>inteligente</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Circulação, armazenamento, ergonomia e organização pensados para facilitar sua rotina e tornar cada momento na cozinha mais fluido e natural.</p>
+      </div>
+      <div class="ps-reveal ps-d2 ps-concept-block" style="background: #FFFFFF; padding: 52px 42px; position: relative; overflow: hidden; box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #D9B552;"></div>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; color: rgba(196,154,53,0.18); line-height: 1; margin-bottom: 22px;">02</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: #211F1D; margin-bottom: 14px; line-height: 1.22;">Estética<br>sob medida</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Acabamentos, cores, texturas e proporções escolhidos para refletir o seu estilo e criar um ambiente que expressa quem você é.</p>
+      </div>
+      <div class="ps-reveal ps-d3 ps-concept-block" style="background: linear-gradient(145deg, #C49A35 0%, #6B4A32 100%); padding: 52px 42px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: rgba(252,252,252,0.32);"></div>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; color: rgba(252,252,252,0.18); line-height: 1; margin-bottom: 22px;">03</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: #FFFFFF; margin-bottom: 14px; line-height: 1.22;">Acabamento<br>impecável</h3>
+        <p style="font-size: 13.5px; color: rgba(252,252,252,0.84); line-height: 1.82; font-weight: 300;">Precisão na execução, atenção a cada detalhe e montagem realizada por equipe especializada da própria Premier Stimmo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. DIFERENCIAIS ═══ -->
+<section id="diferenciais" data-screen-label="Diferenciais" style="padding: 116px 0; background: #F7F4EE;">
+  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
+    <div style="margin-bottom: 68px;" class="ps-reveal">
+      <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #D9B552; margin-bottom: 18px;">Por que nos escolher</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 50px); font-weight: 500; color: #211F1D; line-height: 1.13; max-width: 580px; text-wrap: pretty;">Por que planejar sua cozinha com a Premier Stimmo?</h2>
+    </div>
+    <div class="ps-diff-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; background: transparent;">
+      <div class="ps-reveal ps-d1" style="background: #FFFFFF; padding: 42px 34px; border-top: 1px solid rgba(217,181,82,0.28); box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: rgba(196,154,53,0.28); margin-bottom: 18px; line-height: 1;">01</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Atendimento consultivo</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Você é acompanhado desde a primeira conversa até a vistoria final, com orientação clara em cada decisão do projeto.</p>
+      </div>
+      <div class="ps-reveal ps-d2" style="background: #FFFFFF; padding: 42px 34px; border-top: 1px solid rgba(217,181,82,0.28); box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: rgba(196,154,53,0.28); margin-bottom: 18px; line-height: 1;">02</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Design inteligente</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Projetos criados por profissionais experientes, considerando beleza, ergonomia, aproveitamento de espaço e rotina.</p>
+      </div>
+      <div class="ps-reveal ps-d3" style="background: #FFFFFF; padding: 42px 34px; border-top: 1px solid rgba(217,181,82,0.28); box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: rgba(196,154,53,0.28); margin-bottom: 18px; line-height: 1;">03</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Produção com precisão</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Tecnologia e cuidado técnico para garantir encaixes, medidas e acabamento de alto padrão em cada módulo.</p>
+      </div>
+      <div class="ps-reveal ps-d4" style="background: #FFFFFF; padding: 42px 34px; border-top: 1px solid rgba(217,181,82,0.28); box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: rgba(196,154,53,0.28); margin-bottom: 18px; line-height: 1;">04</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Montagem com equipe própria</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Mais controle, mais confiança e mais segurança durante a entrega do seu projeto.</p>
+      </div>
+      <div class="ps-reveal ps-d5" style="background: #FFFFFF; padding: 42px 34px; border-top: 1px solid rgba(217,181,82,0.28); box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: rgba(196,154,53,0.28); margin-bottom: 18px; line-height: 1;">05</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Garantia de 5 anos</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Um investimento pensado para durar e trazer tranquilidade por muitos anos.</p>
+      </div>
+      <div class="ps-reveal ps-d6" style="background: #FFFFFF; padding: 42px 34px; border-top: 1px solid rgba(217,181,82,0.28); box-shadow: 0 18px 40px rgba(17,16,14,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: rgba(196,154,53,0.28); margin-bottom: 18px; line-height: 1;">06</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Pagamento facilitado</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Condições especiais por meio de financeira própria, adaptadas à sua realidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. EXPERIÊNCIA ═══ -->
+<section style="padding: 116px 0; background: #FCFCFC;">
+  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
+    <div class="ps-exp-intro-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-bottom: 68px;">
+      <div class="ps-reveal">
+        <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #D9B552; margin-bottom: 20px;">Experiência diária</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.8vw, 50px); font-weight: 500; color: #211F1D; line-height: 1.1; text-wrap: pretty;">Uma cozinha bonita impressiona. Uma cozinha bem planejada muda a rotina.</h2>
+      </div>
+      <div class="ps-reveal ps-d1" style="padding-top: 16px;">
+        <p style="font-size: 16px; color: #5F5B57; line-height: 1.85; font-weight: 300; margin-bottom: 20px;">Cada centímetro planejado com intenção. Cada detalhe pensado para o jeito como você vive.</p>
+        <p style="font-size: 15px; color: #5F5B57; line-height: 1.85; font-weight: 300; font-style: italic; border-left: 2px solid #D9B552; padding-left: 20px;">"Não se trata apenas de armários. Trata-se de criar uma rotina mais leve, mais bonita e mais sua."</p>
+      </div>
+    </div>
+    <div class="ps-exp-grid ps-reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; background: transparent;">
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Café da manhã com tudo à mão</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Cada item no lugar certo, sem buscar o que precisa.</p></div>
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Bancadas livres e funcionais</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Espaço para preparar, para criar, para reunir.</p></div>
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Espaço inteligente para utensílios</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Organização que faz sentido para o seu dia a dia.</p></div>
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Torre quente integrada</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Forno, micro-ondas e aquecedor no lugar ideal.</p></div>
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Iluminação que valoriza</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Luz pensada para destacar materiais e criar atmosfera.</p></div>
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Armários até o teto</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Aproveitamento máximo do espaço vertical disponível.</p></div>
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Gavetas organizadas</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Divisórias e sistemas que colocam cada coisa no lugar.</p></div>
+      <div style="background: #FFFFFF; padding: 30px 26px; box-shadow: 0 18px 40px rgba(17,16,14,0.06);"><div style="width: 36px; height: 1px; background: #D9B552; margin-bottom: 18px;"></div><p style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.3;">Integração com a sala</p><p style="font-size: 15px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Cozinha e sala como um único espaço acolhedor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. PROCESSO ═══ -->
+<section id="processo" data-screen-label="Processo" style="padding: 116px 0; background: #F7F4EE;">
+  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
+    <div style="text-align: center; max-width: 620px; margin: 0 auto 80px;" class="ps-reveal">
+      <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #D9B552; margin-bottom: 20px;">Como funciona</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 500; color: #211F1D; line-height: 1.15; text-wrap: pretty;">Do primeiro briefing à cozinha pronta: um processo pensado para você se sentir seguro.</h2>
+    </div>
+    <div class="ps-process-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative;">
+      <div class="ps-process-line ps-d" style="position: absolute; top: 27px; left: calc(12.5% + 18px); right: calc(12.5% + 18px); height: 1px; background: linear-gradient(to right, #D9B552, #E7D39A, #D9B552); z-index: 0;"></div>
+      <div class="ps-reveal ps-d1" style="padding: 0 24px 0 0; position: relative; z-index: 1;">
+        <div style="width: 54px; height: 54px; border: 1px solid #E7D39A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; background: #FFFFFF;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: #D9B552;">01</span></div>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Conversa inicial</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Entendemos seu espaço, sua rotina, suas referências e o que você deseja transformar na sua cozinha.</p>
+      </div>
+      <div class="ps-reveal ps-d2" style="padding: 0 12px; position: relative; z-index: 1;">
+        <div style="width: 54px; height: 54px; border: 1px solid #E7D39A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; background: #FFFFFF;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: #D9B552;">02</span></div>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Projeto personalizado</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Desenvolvemos uma proposta sob medida, com soluções inteligentes para estética e funcionalidade.</p>
+      </div>
+      <div class="ps-reveal ps-d3" style="padding: 0 12px; position: relative; z-index: 1;">
+        <div style="width: 54px; height: 54px; border: 1px solid #E7D39A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; background: #FFFFFF;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: #D9B552;">03</span></div>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Produção e acompanhamento</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Cada detalhe segue para produção com precisão técnica e acompanhamento direto da equipe.</p>
+      </div>
+      <div class="ps-reveal ps-d4" style="padding: 0 0 0 24px; position: relative; z-index: 1;">
+        <div style="width: 54px; height: 54px; border: 1px solid #E7D39A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; background: #FFFFFF;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: #D9B552;">04</span></div>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 500; color: #211F1D; margin-bottom: 12px; line-height: 1.25;">Montagem e vistoria final</h3>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">A entrega é feita com cuidado, equipe especializada e atenção total ao acabamento.</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 72px;" class="ps-reveal">
+      <a data-wa="orcamento" href="#" class="ps-btn-gold sellbot-wpp-open" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 18px 40px; border-radius: 2px; transition: background 0.24s ease; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Começar meu projeto agora</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. SHOWROOM ═══ -->
+<section id="showroom" data-screen-label="Showroom" style="background: #FCFCFC; overflow: hidden;">
+  <div class="ps-showroom-grid" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 520px;">
+    <div class="ps-reveal" style="padding: 26px; background: #F7F4EE;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 140px; gap: 10px; min-height: 100%; height: 100%;">
+        <div class="ps-gallery-item" data-zoom-src="assets/cozinha1.webp" style="grid-column: span 2; grid-row: span 2; border-radius: 4px; background: linear-gradient(140deg, #6B4A32 0%, #2B1C13 100%);">
+          <img src="assets/cozinha1.webp" alt="Ambiente de cozinha planejada Premier Stimmo 1" class="ps-gallery-img" loading="lazy">
+          <div class="ps-gallery-overlay"><p style="font-size: 13px; color: rgba(252,252,252,0.9); font-weight: 400;">Ambiente planejado com presença sofisticada</p></div>
+        </div>
+        <div class="ps-gallery-item" data-zoom-src="assets/cozinha2.webp" style="border-radius: 4px; background: linear-gradient(140deg, #E7D39A 0%, #C49A35 100%);">
+          <img src="assets/cozinha2.webp" alt="Ambiente de cozinha planejada Premier Stimmo 2" class="ps-gallery-img" loading="lazy">
+          <div class="ps-gallery-overlay"><p style="font-size: 13px; color: rgba(252,252,252,0.9); font-weight: 400;">Detalhes e acabamentos</p></div>
+        </div>
+        <div class="ps-gallery-item" data-zoom-src="assets/cozinha3.webp" style="border-radius: 4px; background: linear-gradient(140deg, #D8C9BA 0%, #8A8178 100%);">
+          <img src="assets/cozinha3.webp" alt="Ambiente de cozinha planejada Premier Stimmo 3" class="ps-gallery-img" loading="lazy">
+          <div class="ps-gallery-overlay"><p style="font-size: 13px; color: rgba(252,252,252,0.9); font-weight: 400;">Composição leve e funcional</p></div>
+        </div>
+        <div class="ps-gallery-item" data-zoom-src="assets/cozinha4.webp" style="grid-column: span 2; grid-row: span 2; border-radius: 4px; background: linear-gradient(140deg, #FCFCFC 0%, #EDEAE6 100%);">
+          <img src="assets/cozinha4.webp" alt="Ambiente de cozinha planejada Premier Stimmo 4" class="ps-gallery-img" loading="lazy">
+          <div class="ps-gallery-overlay"><p style="font-size: 13px; color: rgba(252,252,252,0.9); font-weight: 400;">Integração e conforto visual</p></div>
+        </div>
+        <div class="ps-gallery-item" data-zoom-src="assets/cozinha5.webp" style="border-radius: 4px; background: linear-gradient(140deg, #6B4A32 0%, #D9B552 100%);">
+          <img src="assets/cozinha5.webp" alt="Ambiente de cozinha planejada Premier Stimmo 5" class="ps-gallery-img" loading="lazy">
+          <div class="ps-gallery-overlay"><p style="font-size: 13px; color: rgba(252,252,252,0.9); font-weight: 400;">Marcenaria autoral</p></div>
+        </div>
+        <div class="ps-gallery-item" data-zoom-src="assets/cozinha6.webp" style="border-radius: 4px; background: linear-gradient(140deg, #2B1C13 0%, #6B4A32 100%);">
+          <img src="assets/cozinha6.webp" alt="Ambiente de cozinha planejada Premier Stimmo 6" class="ps-gallery-img" loading="lazy">
+          <div class="ps-gallery-overlay"><p style="font-size: 13px; color: rgba(252,252,252,0.9); font-weight: 400;">Showroom com soluções sob medida</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="ps-reveal ps-showroom-content" style="padding: 80px 68px; display: flex; flex-direction: column; justify-content: center;">
+      <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #D9B552; margin-bottom: 22px;">Nosso showroom</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 500; color: #211F1D; line-height: 1.13; margin-bottom: 18px;">Veja, toque e sinta<br>antes de decidir.</h2>
+      <div style="width: 38px; height: 1px; background: #D9B552; margin-bottom: 22px;"></div>
+      <p style="font-size: 14.5px; color: #4F4A45; line-height: 1.88; font-weight: 300; margin-bottom: 32px;">O showroom da Premier Stimmo foi criado para que você possa conhecer materiais, acabamentos, soluções de armazenamento e detalhes de execução na prática. Uma experiência presencial para decidir com tranquilidade e confiança.</p>
+      <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 30px;">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style="flex-shrink: 0; margin-top: 3px;"><path d="M7.5 1C5.015 1 3 3.015 3 5.5c0 3.75 4.5 8.5 4.5 8.5s4.5-4.75 4.5-8.5C12 3.015 9.985 1 7.5 1zm0 6.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5z" fill="#D9B552"></path></svg>
+        <p style="font-size: 13.5px; color: #4F4A45; line-height: 1.72; font-weight: 300;">Av. Desembargador Hugo Simas, 1149, loja 7<br>Vista Alegre – Curitiba – PR</p>
+      </div>
+      <a data-wa="showroom" href="#" class="ps-btn-gold sellbot-wpp-open" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 16px 30px; border-radius: 2px; transition: background 0.24s ease; align-self: flex-start; white-space: nowrap; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Agendar visita ao showroom</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. CASACOR ═══ -->
+<section style="padding: 72px 0; background: #F7F4EE; border-top: 1px solid rgba(216,192,138,0.18);">
+  <div class="ps-container ps-casacor-inner ps-reveal" style="max-width: 1320px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 52px; justify-content: space-between; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 28px; flex-shrink: 0;">
+      <div style="width: 86px; height: 86px; border: 1px solid rgba(216,192,138,0.45); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; gap: 1px; box-shadow: inset 0 0 0 1px rgba(167,40,40,0.12);">
+        <span style="font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: #D9B552; font-weight: 600;">CASA</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; color: #211F1D; line-height: 1.1;">COR</span>
+        <span style="font-size: 9px; letter-spacing: 1px; color: #D9B552; font-weight: 600;">2025</span>
+      </div>
+      <div>
+        <p style="font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: #D9B552; margin-bottom: 8px;">Fornecedora oficial</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.6vw, 32px); font-weight: 500; color: #211F1D; line-height: 1.2;">Projetos com presença em<br>ambientes de alto padrão</h2>
+      </div>
+    </div>
+    <p style="font-size: 15px; color: #5F5B57; line-height: 1.85; font-weight: 300; max-width: 460px;">A participação da Premier Stimmo como fornecedora oficial na CASACOR reforça o compromisso da marca com projetos funcionais, autorais e de alto padrão — ambientes que inspiram e duram.</p>
+  </div>
+</section>
+
+<!-- ═══ 9. DEPOIMENTOS ═══ -->
+<section id="depoimentos" data-screen-label="Depoimentos" style="padding: 116px 0; background: #FCFCFC;">
+  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
+    <div style="text-align: center; margin-bottom: 60px;" class="ps-reveal">
+      <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #C7A76A; margin-bottom: 20px;">O que dizem os clientes</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 500; color: #11100E; line-height: 1.15; text-wrap: pretty;">Histórias de quem já vive a diferença Premier Stimmo</h2>
+    </div>
+    <div id="ps-testimonials-container" style="position: relative; max-width: 820px; margin: 0 auto 44px; min-height: 240px;">
+      <div class="ps-testimonial">
+        <div class="ps-testimonial-card" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.2); border-radius: 6px; padding: 52px 56px; box-shadow: 0 18px 44px rgba(17,16,14,0.08);">
+          <p style="font-size: 17px; color: #C7A76A; margin-bottom: 22px; letter-spacing: 2px;">★★★★★</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: #11100E; line-height: 1.68; margin-bottom: 30px; font-weight: 400;">"Qualidade impecável dos móveis e cumprimento rigoroso do prazo. Minha cozinha ficou um sonho. Cada detalhe foi pensado. Nunca imaginei que planejar uma cozinha pudesse ser uma experiência tão tranquila."</p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 42px; height: 42px; background: #F7F4EE; border: 1px solid rgba(216,192,138,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; color: #C7A76A;">CE</span></div>
+            <div><p style="font-size: 13.5px; font-weight: 600; color: #11100E;">Carlos Eduardo</p><p style="font-size: 12px; color: #5F5B57; margin-top: 2px;">Curitiba – PR</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="ps-testimonial">
+        <div class="ps-testimonial-card" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.2); border-radius: 6px; padding: 52px 56px; box-shadow: 0 18px 44px rgba(17,16,14,0.08);">
+          <p style="font-size: 17px; color: #C7A76A; margin-bottom: 22px; letter-spacing: 2px;">★★★★★</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: #11100E; line-height: 1.68; margin-bottom: 30px; font-weight: 400;">"O atendimento foi excepcional do início ao fim. A equipe entendeu exatamente o que eu precisava e transformou um espaço pequeno em uma cozinha funcional e elegante. Recomendo sem hesitar."</p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 42px; height: 42px; background: #F7F4EE; border: 1px solid rgba(216,192,138,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; color: #C7A76A;">AL</span></div>
+            <div><p style="font-size: 13.5px; font-weight: 600; color: #11100E;">Ana Luíza Machado</p><p style="font-size: 12px; color: #5F5B57; margin-top: 2px;">Curitiba – PR</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="ps-testimonial">
+        <div class="ps-testimonial-card" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.2); border-radius: 6px; padding: 52px 56px; box-shadow: 0 18px 44px rgba(17,16,14,0.08);">
+          <p style="font-size: 17px; color: #C7A76A; margin-bottom: 22px; letter-spacing: 2px;">★★★★★</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: #11100E; line-height: 1.68; margin-bottom: 30px; font-weight: 400;">"A montagem foi feita com extremo profissionalismo. Pontual, cuidadosa e entregou exatamente o que foi projetado. O acabamento superou minhas expectativas em todos os detalhes."</p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 42px; height: 42px; background: #F7F4EE; border: 1px solid rgba(216,192,138,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; color: #C7A76A;">RF</span></div>
+            <div><p style="font-size: 13.5px; font-weight: 600; color: #11100E;">Roberto Ferreira</p><p style="font-size: 12px; color: #5F5B57; margin-top: 2px;">São José dos Pinhais – PR</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 8px; align-items: center;">
+      <button class="ps-dot" aria-label="Depoimento 1" style="width: 8px; height: 8px; border-radius: 4px; background: rgba(191,174,159,0.42); border: none; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+      <button class="ps-dot" aria-label="Depoimento 2" style="width: 8px; height: 8px; border-radius: 4px; background: rgba(191,174,159,0.42); border: none; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+      <button class="ps-dot" aria-label="Depoimento 3" style="width: 8px; height: 8px; border-radius: 4px; background: rgba(191,174,159,0.42); border: none; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10. FAQ ═══ -->
+<section style="padding: 116px 0; background: #F7F4EE;">
+  <div class="ps-container" style="max-width: 800px; margin: 0 auto; padding: 0 48px;">
+    <div style="text-align: center; margin-bottom: 60px;" class="ps-reveal">
+      <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #C7A76A; margin-bottom: 20px;">Dúvidas frequentes</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 500; color: #11100E; line-height: 1.2; text-wrap: pretty;">Planejar uma cozinha é uma grande decisão. Cada detalhe precisa transmitir confiança.</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; background: transparent;" class="ps-reveal">
+      <div class="ps-faq-item" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.18); box-shadow: 0 18px 40px rgba(17,16,14,0.05);">
+        <div class="ps-faq-q" style="display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; gap: 16px;">
+          <span style="font-size: 15.5px; font-weight: 500; color: #11100E; line-height: 1.4;">O projeto é realmente sob medida?</span>
+          <span class="ps-faq-icon" style="font-size: 22px; color: #C7A76A; flex-shrink: 0; line-height: 1; font-weight: 300;">+</span>
+        </div>
+        <div class="ps-faq-answer"><p style="padding: 0 28px 20px; font-size: 14.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Sim. Cada projeto é desenvolvido exclusivamente para o seu espaço, considerando medidas específicas, necessidades de uso e preferências estéticas. Não trabalhamos com kits prontos ou soluções genéricas.</p></div>
+      </div>
+      <div class="ps-faq-item" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.18); box-shadow: 0 18px 40px rgba(17,16,14,0.05);">
+        <div class="ps-faq-q" style="display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; gap: 16px;">
+          <span style="font-size: 15.5px; font-weight: 500; color: #11100E; line-height: 1.4;">Vocês ajudam na escolha dos acabamentos?</span>
+          <span class="ps-faq-icon" style="font-size: 22px; color: #C7A76A; flex-shrink: 0; line-height: 1; font-weight: 300;">+</span>
+        </div>
+        <div class="ps-faq-answer"><p style="padding: 0 28px 20px; font-size: 14.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Com certeza. Nossa equipe consultiva orienta você na escolha de materiais, cores, texturas e acabamentos que combinam com seu estilo. Você pode ver e tocar as amostras no showroom antes de decidir.</p></div>
+      </div>
+      <div class="ps-faq-item" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.18); box-shadow: 0 18px 40px rgba(17,16,14,0.05);">
+        <div class="ps-faq-q" style="display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; gap: 16px;">
+          <span style="font-size: 15.5px; font-weight: 500; color: #11100E; line-height: 1.4;">É possível visitar o showroom?</span>
+          <span class="ps-faq-icon" style="font-size: 22px; color: #C7A76A; flex-shrink: 0; line-height: 1; font-weight: 300;">+</span>
+        </div>
+        <div class="ps-faq-answer"><p style="padding: 0 28px 20px; font-size: 14.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Sim. Nossa loja fica na Av. Desembargador Hugo Simas, 1149, loja 7, Vista Alegre – Curitiba. Agende uma visita pelo WhatsApp (41) 99575-9191 ou ligue para (41) 3408-4802.</p></div>
+      </div>
+      <div class="ps-faq-item" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.18); box-shadow: 0 18px 40px rgba(17,16,14,0.05);">
+        <div class="ps-faq-q" style="display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; gap: 16px;">
+          <span style="font-size: 15.5px; font-weight: 500; color: #11100E; line-height: 1.4;">A montagem é feita por equipe própria?</span>
+          <span class="ps-faq-icon" style="font-size: 22px; color: #C7A76A; flex-shrink: 0; line-height: 1; font-weight: 300;">+</span>
+        </div>
+        <div class="ps-faq-answer"><p style="padding: 0 28px 20px; font-size: 14.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Sim. A montagem é realizada por equipe própria e treinada, garantindo mais controle sobre a qualidade, o prazo e o acabamento final do seu projeto.</p></div>
+      </div>
+      <div class="ps-faq-item" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.18); box-shadow: 0 18px 40px rgba(17,16,14,0.05);">
+        <div class="ps-faq-q" style="display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; gap: 16px;">
+          <span style="font-size: 15.5px; font-weight: 500; color: #11100E; line-height: 1.4;">Os móveis têm garantia?</span>
+          <span class="ps-faq-icon" style="font-size: 22px; color: #C7A76A; flex-shrink: 0; line-height: 1; font-weight: 300;">+</span>
+        </div>
+        <div class="ps-faq-answer"><p style="padding: 0 28px 20px; font-size: 14.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Sim. Todos os projetos Premier Stimmo têm garantia de 5 anos. Um investimento pensado para durar e trazer tranquilidade por muitos anos.</p></div>
+      </div>
+      <div class="ps-faq-item" style="background: #FFFFFF; border: 1px solid rgba(216,192,138,0.18); box-shadow: 0 18px 40px rgba(17,16,14,0.05);">
+        <div class="ps-faq-q" style="display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; gap: 16px;">
+          <span style="font-size: 15.5px; font-weight: 500; color: #11100E; line-height: 1.4;">Atendem Curitiba e região?</span>
+          <span class="ps-faq-icon" style="font-size: 22px; color: #C7A76A; flex-shrink: 0; line-height: 1; font-weight: 300;">+</span>
+        </div>
+        <div class="ps-faq-answer"><p style="padding: 0 28px 20px; font-size: 14.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Sim. Atendemos Curitiba e toda a região metropolitana: São José dos Pinhais, Colombo, Araucária, Campo Largo, Pinhais e cidades próximas.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11. ORÇAMENTO / CTA FINAL ═══ -->
+<section id="orcamento" data-screen-label="Orçamento" style="padding: 116px 0; background: #FCFCFC;">
+  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
+    <div class="ps-cta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+      <div class="ps-reveal">
+        <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #C7A76A; margin-bottom: 22px;">Pronto para começar?</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4.5vw, 60px); font-weight: 500; color: #211F1D; line-height: 1.05; margin-bottom: 20px; text-wrap: pretty;">Sua nova cozinha pode começar com uma conversa.</h2>
+        <div style="width: 38px; height: 1px; background: #C7A76A; margin-bottom: 24px;"></div>
+        <p style="font-size: 15.5px; color: #5F5B57; line-height: 1.88; font-weight: 300; margin-bottom: 48px;">Conte para a Premier Stimmo como você imagina sua cozinha. Nossa equipe vai entender seu espaço, sua rotina e seus objetivos para criar um projeto sob medida, funcional e elegante.</p>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <a data-wa="orcamento" href="#" class="sellbot-wpp-open" style="display: flex; align-items: center; gap: 13px; color: #128C7E; transition: color 0.24s ease;" style-hover="color: #25D366 !important;">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1C4.358 1 1 4.358 1 8.5c0 1.68.535 3.236 1.443 4.504L1.5 15.5l2.64-1.409A7.464 7.464 0 0 0 8.5 16c4.142 0 7.5-3.358 7.5-7.5S12.642 1 8.5 1zm3.87 10.22c-.198.556-1.165 1.063-1.61 1.13-.437.067-.99.094-1.597-.1a13.68 13.68 0 0 1-1.444-.534c-2.536-1.093-4.195-3.633-4.323-3.802-.126-.168-1.036-1.375-1.036-2.625S3.1 3.7 3.32 3.47c.22-.23.48-.288.64-.288l.458.007c.154.007.364-.058.57.436l.777 1.88c.07.126.105.273.022.442-.084.168-.126.273-.252.42-.126.148-.265.33-.378.44-.126.126-.257.262-.11.514.147.252.655 1.08 1.405 1.748.83.748 1.53.98 1.747 1.09.218.112.344.093.47-.035.126-.128.532-.74.672-.995.14-.253.28-.21.47-.126.192.084 1.218.574 1.428.68.21.105.35.158.4.245.05.09.05.645-.148 1.2z" fill="#25D366"></path></svg>
+            <span style="font-size: 14.5px; font-weight: 500;">(41) 99575-9191 — WhatsApp</span>
+          </a>
+          <a href="tel:+554134084802" style="display: flex; align-items: center; gap: 13px; color: #5F5B57; transition: color 0.24s ease;" style-hover="color: #211F1D !important;">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M3.3 2.1h2.85l1.425 3.563-1.781 1.069A10.01 10.01 0 0 0 10.688 12l1.069-1.781L15.1 11.644v2.85a2.137 2.137 0 0 1-2.35 2.13A17.063 17.063 0 0 1 1.17 4.45 2.137 2.137 0 0 1 3.3 2.1z" stroke="#8A8178" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+            <span style="font-size: 14.5px; font-weight: 400;">(41) 3408-4802 — Telefone</span>
+          </a>
+          <div style="display: flex; align-items: flex-start; gap: 13px; color: #5F5B57;">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="flex-shrink: 0; margin-top: 2px;"><path d="M8.5 1C5.963 1 3.906 3.057 3.906 5.594c0 4.094 4.594 9.156 4.594 9.156s4.594-5.063 4.594-9.156C13.094 3.057 11.037 1 8.5 1zm0 6.656a2.063 2.063 0 1 1 0-4.125 2.063 2.063 0 0 1 0 4.125z" fill="#D9B552"></path></svg>
+            <span style="font-size: 13.5px; font-weight: 300; line-height: 1.65;">Av. Desembargador Hugo Simas, 1149, loja 7<br>Vista Alegre – Curitiba – PR</span>
+          </div>
+        </div>
+      </div>
+      <div class="ps-reveal ps-d1">
+        <div class="ps-orcamento-form" style="background: #FFFFFF; border: 1px solid #EDEAE6; border-radius: 6px; padding: 48px 44px; box-shadow: 0 18px 48px rgba(33,31,29,0.08);">
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #211F1D; margin-bottom: 8px;">Solicitar orçamento</h3>
+          <p style="font-size: 13.5px; color: #5F5B57; margin-bottom: 30px; font-weight: 300;">Preencha e entraremos em contato pelo seu WhatsApp.</p>
+          <form id="ps-form" style="display: flex; flex-direction: column; gap: 15px;">
+            <div>
+              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-nome">Nome completo</label>
+              <input id="ps-nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #211F1D; outline: none; transition: border-color 0.24s ease;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-whatsapp">WhatsApp</label>
+              <input id="ps-whatsapp" name="whatsapp" type="tel" placeholder="(41) 99999-9999" autocomplete="tel" required style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #211F1D; outline: none; transition: border-color 0.24s ease;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-bairro">Bairro / Cidade</label>
+              <input id="ps-bairro" name="bairro" type="text" placeholder="Ex: Batel, Curitiba" style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #211F1D; outline: none; transition: border-color 0.24s ease;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-tipo">Tipo de cozinha</label>
+              <select id="ps-tipo" name="tipo" style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #5F5B57; outline: none; cursor: pointer; appearance: none;">
+                <option value="">Selecione o tipo</option>
+                <option value="compacta">Cozinha compacta</option>
+                <option value="gourmet">Cozinha gourmet</option>
+                <option value="integrada">Cozinha integrada</option>
+                <option value="apartamento">Apartamento</option>
+                <option value="casa">Casa</option>
+              </select>
+            </div>
+            <div>
+              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-horario">Melhor horário</label>
+              <select id="ps-horario" name="horario" style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #5F5B57; outline: none; cursor: pointer; appearance: none;">
+                <option value="">Selecione o horário</option>
+                <option value="manha">Manhã (8h–12h)</option>
+                <option value="tarde">Tarde (12h–18h)</option>
+                <option value="noite">Noite (18h–20h)</option>
+                <option value="qualquer">Qualquer horário</option>
+              </select>
+            </div>
+            <button type="submit" class="ps-btn-gold sellbot-wpp-open" style="width: 100%; background: #25D366; color: #FFFFFF; font-size: 13.5px; font-weight: 600; letter-spacing: 0.5px; padding: 17px 24px; border-radius: 2px; transition: background 0.24s ease; margin-top: 6px; border: none; cursor: pointer; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Solicitar orçamento pelo WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer style="background: #F7F4EE; padding: 72px 0 40px; border-top: 1px solid #EDEAE6;">
+  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
+    <div class="ps-footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1.4fr; gap: 48px; margin-bottom: 52px;">
+      <div>
+        <img src="assets/logo-preto.png" alt="Premier Stimmo" style="height: 38px; width: auto; margin-bottom: 20px; object-fit: contain;">
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.8; font-weight: 300; max-width: 240px;">Móveis planejados de alto padrão em Curitiba e região. Design inteligente, acabamento impecável.</p>
+      </div>
+      <div>
+        <p style="font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #C7A76A; margin-bottom: 20px;">Contato</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a data-wa="orcamento" href="#" class="sellbot-wpp-open" style="font-size: 13.5px; color: #5F5B57; transition: color 0.24s ease; font-weight: 300;" style-hover="color: #211F1D !important;">(41) 99575-9191</a>
+          <a href="tel:+554134084802" style="font-size: 13.5px; color: #5F5B57; transition: color 0.24s ease; font-weight: 300;" style-hover="color: #211F1D !important;">(41) 3408-4802</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #C7A76A; margin-bottom: 20px;">Showroom</p>
+        <p style="font-size: 13.5px; color: #5F5B57; line-height: 1.75; font-weight: 300;">Av. Desembargador Hugo Simas, 1149, loja 7<br>Vista Alegre – Curitiba – PR</p>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #EDEAE6; padding-top: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px;">
+      <p style="font-size: 12px; color: #5F5B57; font-weight: 300;">© 2026 PREMIER STIMMO. TODOS OS DIREITOS RESERVADOS. DESENVOLVIDO POR: <a href="https://saludigital.com.br/" target="_blank" rel="noopener noreferrer" style="color: #128C7E; font-weight: 600;">SALUDIGITAL</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="ps-lightbox" class="ps-lightbox" aria-hidden="true">
+  <div class="ps-lightbox-dialog">
+    <button type="button" id="ps-lightbox-close" class="ps-lightbox-close" aria-label="Fechar imagem ampliada">×</button>
+    <img id="ps-lightbox-img" class="ps-lightbox-img" src="" alt="">
+    <p id="ps-lightbox-caption" class="ps-lightbox-caption"></p>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const WA_ORC = 'https://wa.me/5541995759191?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20uma%20cozinha%20planejada%20com%20a%20Premier%20Stimmo.';
+    const WA_SHOW = 'https://wa.me/5541995759191?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20visita%20ao%20showroom%20da%20Premier%20Stimmo.';
+
+    // Set all WhatsApp links
+    document.querySelectorAll('[data-wa]').forEach(el => {
+      el.href = el.getAttribute('data-wa') === 'showroom' ? WA_SHOW : WA_ORC;
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
+    });
+
+
+
+    // Smooth scroll with header offset
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + window.scrollY - 90;
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Intersection Observer - reveal animations
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ps-visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.ps-reveal').forEach(el => revealObs.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.ps-faq-item').forEach(item => {
+      const q = item.querySelector('.ps-faq-q');
+      const a = item.querySelector('.ps-faq-answer');
+      if (!q || !a) return;
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('ps-faq-open');
+        document.querySelectorAll('.ps-faq-item').forEach(other => {
+          other.classList.remove('ps-faq-open');
+          const oa = other.querySelector('.ps-faq-answer');
+          if (oa) { oa.style.maxHeight = '0'; oa.style.opacity = '0'; }
+        });
+        if (!isOpen) {
+          item.classList.add('ps-faq-open');
+          a.style.maxHeight = (a.scrollHeight + 24) + 'px';
+          a.style.opacity = '1';
+        }
+      });
+    });
+
+    // Testimonials carousel
+    const testimonials = document.querySelectorAll('.ps-testimonial');
+    const dots = document.querySelectorAll('.ps-dot');
+    let currentT = 0;
+    let autoInterval;
+
+    const showT = (i) => {
+      testimonials.forEach((t, idx) => t.classList.toggle('ps-active', idx === i));
+      dots.forEach((d, idx) => {
+        d.style.background = idx === i ? '#D9B552' : 'rgba(138,129,120,0.32)';
+        d.style.width = idx === i ? '24px' : '8px';
+      });
+      currentT = i;
+    };
+
+    dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(autoInterval); showT(i); startAuto(); }));
+
+    const startAuto = () => {
+      autoInterval = setInterval(() => showT((currentT + 1) % testimonials.length), 5800);
+    };
+
+    const tc = document.getElementById('ps-testimonials-container');
+    if (tc) {
+      tc.addEventListener('mouseenter', () => clearInterval(autoInterval));
+      tc.addEventListener('mouseleave', startAuto);
+    }
+
+    showT(0);
+    startAuto();
+
+    // Showroom gallery lightbox
+    const lightbox = document.getElementById('ps-lightbox');
+    const lightboxImg = document.getElementById('ps-lightbox-img');
+    const lightboxCaption = document.getElementById('ps-lightbox-caption');
+    const lightboxClose = document.getElementById('ps-lightbox-close');
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove('ps-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    if (lightbox && lightboxImg && lightboxCaption && lightboxClose) {
+      document.querySelectorAll('.ps-gallery-item[data-zoom-src]').forEach(item => {
+        item.addEventListener('click', () => {
+          const img = item.querySelector('.ps-gallery-img');
+          const caption = item.querySelector('.ps-gallery-overlay p');
+          const src = item.getAttribute('data-zoom-src');
+          if (!img || !src) return;
+
+          lightboxImg.src = src;
+          lightboxImg.alt = img.alt || 'Imagem ampliada da galeria';
+          lightboxCaption.textContent = caption ? caption.textContent : '';
+          lightbox.classList.add('ps-open');
+          lightbox.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && lightbox.classList.contains('ps-open')) closeLightbox();
+      });
+    }
+
+    // Form: phone mask, validation, WhatsApp redirect
+    const form = document.getElementById('ps-form');
+    if (form) {
+      const phoneInput = document.getElementById('ps-whatsapp');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', () => {
+          let v = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+          if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+          else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4,5})(\d*)$/, '($1) $2-$3');
+          else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)$/, '($1) $2');
+          phoneInput.value = v;
+        });
+      }
+
+      ['ps-nome', 'ps-whatsapp', 'ps-bairro'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('focus', () => el.style.borderColor = 'rgba(217,181,82,0.8)');
+        el.addEventListener('blur', () => el.style.borderColor = '#EDEAE6');
+      });
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nome = document.getElementById('ps-nome').value.trim();
+        const whatsapp = document.getElementById('ps-whatsapp').value.trim();
+        const bairro = document.getElementById('ps-bairro').value.trim();
+        const tipo = document.getElementById('ps-tipo').value;
+        const horario = document.getElementById('ps-horario').value;
+
+        let valid = true;
+        if (!nome) { document.getElementById('ps-nome').style.borderColor = '#A72828'; valid = false; }
+        if (!whatsapp || whatsapp.replace(/\D/g,'').length < 10) { document.getElementById('ps-whatsapp').style.borderColor = '#A72828'; valid = false; }
+        if (!valid) return;
+
+        const tipoMap = { compacta: 'cozinha compacta', gourmet: 'cozinha gourmet', integrada: 'cozinha integrada', apartamento: 'apartamento', casa: 'casa' };
+        const horarioMap = { manha: 'manhã (8h–12h)', tarde: 'tarde (12h–18h)', noite: 'noite (18h–20h)', qualquer: 'qualquer horário' };
+
+        let msg = `Olá, vim pelo site e gostaria de solicitar um orçamento para uma cozinha planejada com a Premier Stimmo.\n\nNome: ${nome}\nWhatsApp: ${whatsapp}`;
+        if (bairro) msg += `\nBairro/Cidade: ${bairro}`;
+        if (tipo) msg += `\nTipo: ${tipoMap[tipo] || tipo}`;
+        if (horario) msg += `\nMelhor horário: ${horarioMap[horario] || horario}`;
+
+        window.open(`https://wa.me/5541995759191?text=${encodeURIComponent(msg)}`, '_blank');
+      });
+    }
+  }
+}
+</script>
+<script src="https://plugin.sellbot.tech/assets/js/sellbot_plugin.min.js"></script>
+</body>
+</html>
+
