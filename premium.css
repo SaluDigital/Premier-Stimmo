@@ -395,6 +395,139 @@ section {
     margin-bottom: 1rem;
 }
 
+/* Premium Budget Form */
+.premium-budget-section {
+    background:
+        linear-gradient(135deg, rgba(17, 17, 17, 0.94), rgba(17, 17, 17, 0.82)),
+        url('showroom-kitchen-1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.premium-budget-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.premium-budget-copy h2,
+.premium-budget-copy p {
+    color: white;
+}
+
+.premium-budget-copy p {
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.premium-budget-notes {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.premium-budget-notes span {
+    padding-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.88);
+    border-left: 1px solid var(--accent);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+}
+
+.premium-budget-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(176, 145, 79, 0.35);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+.premium-form-field {
+    margin-bottom: 0;
+}
+
+.premium-form-field-full {
+    grid-column: 1 / -1;
+}
+
+.premium-form-field label,
+.premium-radio-field legend {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+}
+
+.premium-form-field strong {
+    color: var(--accent);
+}
+
+.premium-form-field input,
+.premium-form-field select {
+    width: 100%;
+    min-height: 52px;
+    padding: 0.85rem 0;
+    border: none;
+    border-bottom: 1px solid #d8d8d8;
+    background: transparent;
+    color: var(--primary);
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.premium-form-field input:focus,
+.premium-form-field select:focus {
+    border-bottom-color: var(--accent);
+}
+
+.premium-radio-field {
+    padding: 0;
+    border: 0;
+}
+
+.premium-radio-group {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-height: 52px;
+}
+
+.premium-radio-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.05rem;
+    text-transform: none;
+    letter-spacing: 0;
+    cursor: pointer;
+}
+
+.premium-radio-group input {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--accent);
+}
+
+.premium-hidden {
+    display: none;
+}
+
+.premium-budget-submit {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
 /* Footer */
 .footer {
     padding: var(--spacing-lg) 0 var(--spacing-md);
@@ -610,6 +743,19 @@ section {
     .process-grid {
         grid-template-columns: 1fr !important;
         gap: 2.5rem !important;
+    }
+
+    .premium-budget-grid,
+    .premium-budget-form {
+        grid-template-columns: 1fr !important;
+    }
+
+    .premium-budget-form {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .premium-radio-group {
+        gap: 1.5rem !important;
     }
 
     .btn-sticky {

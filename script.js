@@ -136,49 +136,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const deadlineInput = document.getElementById('deadline');
     const readyOptions = document.querySelectorAll('input[name="isReady"]');
 
-    function maskWhatsapp(value) {
-        const digits = value.replace(/\D/g, '').slice(0, 11);
+    if (budgetForm && whatsappInput && deadlineField && deadlineInput) {
+        function maskWhatsapp(value) {
+            const digits = value.replace(/\D/g, '').slice(0, 11);
 
-        if (digits.length <= 2) {
-            return digits;
+            if (digits.length <= 2) {
+                return digits;
+            }
+
+            if (digits.length <= 6) {
+                return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+            }
+
+            if (digits.length <= 10) {
+                return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+            }
+
+            return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
         }
 
-        if (digits.length <= 6) {
-            return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+        function toggleDeadlineField() {
+            const selectedReadyOption = budgetForm.querySelector('input[name="isReady"]:checked');
+            const shouldShowDeadline = selectedReadyOption && selectedReadyOption.value === 'Não';
+
+            deadlineField.classList.toggle('hidden', !shouldShowDeadline);
+            deadlineInput.required = shouldShowDeadline;
+
+            if (!shouldShowDeadline) {
+                deadlineInput.value = '';
+            }
         }
 
-        if (digits.length <= 10) {
-            return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
-        }
-
-        return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-    }
-
-    function toggleDeadlineField() {
-        const selectedReadyOption = document.querySelector('input[name="isReady"]:checked');
-        const shouldShowDeadline = selectedReadyOption && selectedReadyOption.value === 'Não';
-
-        deadlineField.classList.toggle('hidden', !shouldShowDeadline);
-        deadlineInput.required = shouldShowDeadline;
-
-        if (!shouldShowDeadline) {
-            deadlineInput.value = '';
-        }
-    }
-
-    if (whatsappInput) {
         whatsappInput.addEventListener('input', () => {
             whatsappInput.value = maskWhatsapp(whatsappInput.value);
         });
-    }
 
-    readyOptions.forEach(option => {
-        option.addEventListener('change', toggleDeadlineField);
-    });
+        readyOptions.forEach(option => {
+            option.addEventListener('change', toggleDeadlineField);
+        });
 
-    toggleDeadlineField();
+        toggleDeadlineField();
 
-    if (budgetForm) {
         budgetForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
