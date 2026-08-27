@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(budgetForm);
             const isReady = formData.get('isReady');
             const messageLines = [
-                'Olá, gostaria de solicitar um orçamento personalizado.',
+                'Olá, vim do Google e gostaria de solicitar um orçamento personalizado.',
                 '',
                 `Nome completo: ${formData.get('fullName')}`,
                 `Whatsapp: ${formData.get('whatsapp')}`,
