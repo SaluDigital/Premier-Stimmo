@@ -128,4 +128,82 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowLeft') showPrev();
         }
     });
+
+    // Budget form
+    const budgetForm = document.getElementById('budgetForm');
+    const whatsappInput = document.getElementById('whatsapp');
+    const deadlineField = document.getElementById('deadlineField');
+    const deadlineInput = document.getElementById('deadline');
+    const readyOptions = document.querySelectorAll('input[name="isReady"]');
+
+    function maskWhatsapp(value) {
+        const digits = value.replace(/\D/g, '').slice(0, 11);
+
+        if (digits.length <= 2) {
+            return digits;
+        }
+
+        if (digits.length <= 6) {
+            return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+        }
+
+        if (digits.length <= 10) {
+            return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+        }
+
+        return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+    }
+
+    function toggleDeadlineField() {
+        const selectedReadyOption = document.querySelector('input[name="isReady"]:checked');
+        const shouldShowDeadline = selectedReadyOption && selectedReadyOption.value === 'Não';
+
+        deadlineField.classList.toggle('hidden', !shouldShowDeadline);
+        deadlineInput.required = shouldShowDeadline;
+
+        if (!shouldShowDeadline) {
+            deadlineInput.value = '';
+        }
+    }
+
+    if (whatsappInput) {
+        whatsappInput.addEventListener('input', () => {
+            whatsappInput.value = maskWhatsapp(whatsappInput.value);
+        });
+    }
+
+    readyOptions.forEach(option => {
+        option.addEventListener('change', toggleDeadlineField);
+    });
+
+    toggleDeadlineField();
+
+    if (budgetForm) {
+        budgetForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (!budgetForm.reportValidity()) {
+                return;
+            }
+
+            const formData = new FormData(budgetForm);
+            const isReady = formData.get('isReady');
+            const messageLines = [
+                'Olá, gostaria de solicitar um orçamento personalizado.',
+                '',
+                `Nome completo: ${formData.get('fullName')}`,
+                `Whatsapp: ${formData.get('whatsapp')}`,
+                `Ambiente que deseja planejar: ${formData.get('environment') || 'Não informado'}`,
+                `O ambiente está pronto? ${isReady}`,
+                `Ideia de investimento: ${formData.get('investment') || 'Não informado'}`
+            ];
+
+            if (isReady === 'Não') {
+                messageLines.splice(6, 0, `Prazo para ficar pronto: ${formData.get('deadline')}`);
+            }
+
+            const whatsappUrl = `https://wa.me/5541995759191?text=${encodeURIComponent(messageLines.join('\n'))}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    }
 });
