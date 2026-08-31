@@ -75,9 +75,6 @@ input, select, textarea { font-family: inherit; }
 .ps-btn-gold:hover { background: #1EBE5B !important; }
 .ps-btn-outline:hover { background: rgba(231,211,154,0.12) !important; border-color: rgba(217,181,82,0.42) !important; }
 
-#ps-form input:focus, #ps-form select:focus { border-color: rgba(217,181,82,0.8) !important; outline: none; }
-#ps-form input::placeholder { color: rgba(138,129,120,0.55); }
-
 [style*="font-size: 9px"] { font-size: 10.5px !important; }
 [style*="font-size: 10.5px"] { font-size: 12px !important; }
 [style*="font-size: 11px"] { font-size: 12.5px !important; }
@@ -121,7 +118,6 @@ input, select, textarea { font-family: inherit; }
   .ps-hero-ctas { flex-direction: column !important; align-items: flex-start !important; }
   .ps-concept-block { padding: 44px 32px !important; }
   .ps-testimonial-card { padding: 40px 32px !important; }
-  .ps-orcamento-form { padding: 36px 28px !important; }
   .ps-section-pad { padding: 80px 0 !important; }
   .ps-container { padding: 0 24px !important; }
   #inicio h1 { font-size: clamp(31px, 9vw, 40px) !important; line-height: 1.08 !important; }
@@ -136,8 +132,6 @@ input, select, textarea { font-family: inherit; }
   #showroom .ps-showroom-content > div[style*="width: 38px"] { margin-left: auto !important; margin-right: auto !important; }
   #showroom .ps-showroom-content > div[style*="display: flex; gap: 10px"] { justify-content: center !important; text-align: center !important; }
   #showroom .ps-showroom-content a.ps-btn-gold { align-self: center !important; }
-  #orcamento .ps-reveal:first-child { text-align: center !important; }
-  #orcamento .ps-reveal:first-child > div[style*="width: 38px"] { margin-left: auto !important; margin-right: auto !important; }
   .ps-footer-grid { text-align: center !important; }
   .ps-footer-grid > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
   .ps-footer-grid img { margin-left: auto !important; margin-right: auto !important; }
@@ -167,7 +161,7 @@ input, select, textarea { font-family: inherit; }
       <div style="width: 48px; height: 1px; background: #D9B552; margin-bottom: 26px; animation: heroIn 0.8s ease 0.42s both;"></div>
       <p style="font-size: clamp(15px, 1.6vw, 18.5px); color: rgba(247,244,238,0.9); max-width: 560px; line-height: 1.78; font-weight: 300; margin-bottom: 48px; animation: heroIn 0.8s ease 0.54s both;">Projetos sob medida que unem sofisticação, funcionalidade e acabamento impecável para transformar a cozinha no ambiente mais especial da casa.</p>
       <div class="ps-hero-ctas" style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 0; animation: heroIn 0.8s ease 0.65s both;">
-        <a href="#orcamento" class="ps-btn-gold" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 17px 34px; border-radius: 2px; transition: background 0.24s ease; white-space: nowrap; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Solicitar orçamento personalizado</a>
+        <a data-wa="orcamento" href="#" class="ps-btn-gold sellbot-wpp-open" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 17px 34px; border-radius: 2px; transition: background 0.24s ease; white-space: nowrap; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Solicitar orçamento personalizado</a>
       </div>
     </div>
   </div>
@@ -304,7 +298,7 @@ input, select, textarea { font-family: inherit; }
       </div>
     </div>
     <div style="text-align: center; margin-top: 72px;" class="ps-reveal">
-      <a href="#orcamento" class="ps-btn-gold" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 18px 40px; border-radius: 2px; transition: background 0.24s ease; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Começar meu projeto agora</a>
+      <a data-wa="orcamento" href="#" class="ps-btn-gold sellbot-wpp-open" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 18px 40px; border-radius: 2px; transition: background 0.24s ease; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Começar meu projeto agora</a>
     </div>
   </div>
 </section>
@@ -349,7 +343,7 @@ input, select, textarea { font-family: inherit; }
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style="flex-shrink: 0; margin-top: 3px;"><path d="M7.5 1C5.015 1 3 3.015 3 5.5c0 3.75 4.5 8.5 4.5 8.5s4.5-4.75 4.5-8.5C12 3.015 9.985 1 7.5 1zm0 6.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5z" fill="#D9B552"></path></svg>
         <p style="font-size: 13.5px; color: #4F4A45; line-height: 1.72; font-weight: 300;">Av. Desembargador Hugo Simas, 1149, loja 7<br>Vista Alegre – Curitiba – PR</p>
       </div>
-      <a href="#orcamento" class="ps-btn-gold" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 16px 30px; border-radius: 2px; transition: background 0.24s ease; align-self: flex-start; white-space: nowrap; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Agendar visita ao showroom</a>
+      <a data-wa="showroom" href="#" class="ps-btn-gold sellbot-wpp-open" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 16px 30px; border-radius: 2px; transition: background 0.24s ease; align-self: flex-start; white-space: nowrap; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Agendar visita ao showroom</a>
     </div>
   </div>
 </section>
@@ -468,82 +462,6 @@ input, select, textarea { font-family: inherit; }
           <span class="ps-faq-icon" style="font-size: 22px; color: #C7A76A; flex-shrink: 0; line-height: 1; font-weight: 300;">+</span>
         </div>
         <div class="ps-faq-answer"><p style="padding: 0 28px 20px; font-size: 14.5px; color: #5F5B57; line-height: 1.82; font-weight: 300;">Sim. Atendemos Curitiba e toda a região metropolitana: São José dos Pinhais, Colombo, Araucária, Campo Largo, Pinhais e cidades próximas.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 11. ORÇAMENTO / CTA FINAL ═══ -->
-<section id="orcamento" data-screen-label="Orçamento" style="padding: 116px 0; background: #FCFCFC;">
-  <div class="ps-container" style="max-width: 1320px; margin: 0 auto; padding: 0 48px;">
-    <div class="ps-cta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
-      <div class="ps-reveal">
-        <p style="font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #C7A76A; margin-bottom: 22px;">Pronto para começar?</p>
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4.5vw, 60px); font-weight: 500; color: #211F1D; line-height: 1.05; margin-bottom: 20px; text-wrap: pretty;">Sua nova cozinha pode começar com uma conversa.</h2>
-        <div style="width: 38px; height: 1px; background: #C7A76A; margin-bottom: 24px;"></div>
-        <p style="font-size: 15.5px; color: #5F5B57; line-height: 1.88; font-weight: 300; margin-bottom: 48px;">Conte para a Premier Stimmo como você imagina sua cozinha. Nossa equipe vai entender seu espaço, sua rotina e seus objetivos para criar um projeto sob medida, funcional e elegante.</p>
-        <div style="display: flex; flex-direction: column; gap: 18px;">
-          <a data-wa="orcamento" href="#" class="sellbot-wpp-open" style="display: flex; align-items: center; gap: 13px; color: #128C7E; transition: color 0.24s ease;" style-hover="color: #25D366 !important;">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1C4.358 1 1 4.358 1 8.5c0 1.68.535 3.236 1.443 4.504L1.5 15.5l2.64-1.409A7.464 7.464 0 0 0 8.5 16c4.142 0 7.5-3.358 7.5-7.5S12.642 1 8.5 1zm3.87 10.22c-.198.556-1.165 1.063-1.61 1.13-.437.067-.99.094-1.597-.1a13.68 13.68 0 0 1-1.444-.534c-2.536-1.093-4.195-3.633-4.323-3.802-.126-.168-1.036-1.375-1.036-2.625S3.1 3.7 3.32 3.47c.22-.23.48-.288.64-.288l.458.007c.154.007.364-.058.57.436l.777 1.88c.07.126.105.273.022.442-.084.168-.126.273-.252.42-.126.148-.265.33-.378.44-.126.126-.257.262-.11.514.147.252.655 1.08 1.405 1.748.83.748 1.53.98 1.747 1.09.218.112.344.093.47-.035.126-.128.532-.74.672-.995.14-.253.28-.21.47-.126.192.084 1.218.574 1.428.68.21.105.35.158.4.245.05.09.05.645-.148 1.2z" fill="#25D366"></path></svg>
-            <span style="font-size: 14.5px; font-weight: 500;">(41) 99575-9191 — WhatsApp</span>
-          </a>
-          <a href="tel:+554134084802" style="display: flex; align-items: center; gap: 13px; color: #5F5B57; transition: color 0.24s ease;" style-hover="color: #211F1D !important;">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M3.3 2.1h2.85l1.425 3.563-1.781 1.069A10.01 10.01 0 0 0 10.688 12l1.069-1.781L15.1 11.644v2.85a2.137 2.137 0 0 1-2.35 2.13A17.063 17.063 0 0 1 1.17 4.45 2.137 2.137 0 0 1 3.3 2.1z" stroke="#8A8178" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
-            <span style="font-size: 14.5px; font-weight: 400;">(41) 3408-4802 — Telefone</span>
-          </a>
-          <div style="display: flex; align-items: flex-start; gap: 13px; color: #5F5B57;">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="flex-shrink: 0; margin-top: 2px;"><path d="M8.5 1C5.963 1 3.906 3.057 3.906 5.594c0 4.094 4.594 9.156 4.594 9.156s4.594-5.063 4.594-9.156C13.094 3.057 11.037 1 8.5 1zm0 6.656a2.063 2.063 0 1 1 0-4.125 2.063 2.063 0 0 1 0 4.125z" fill="#D9B552"></path></svg>
-            <span style="font-size: 13.5px; font-weight: 300; line-height: 1.65;">Av. Desembargador Hugo Simas, 1149, loja 7<br>Vista Alegre – Curitiba – PR</span>
-          </div>
-        </div>
-      </div>
-      <div class="ps-reveal ps-d1">
-        <div class="ps-orcamento-form" style="background: #FFFFFF; border: 1px solid #EDEAE6; border-radius: 6px; padding: 48px 44px; box-shadow: 0 18px 48px rgba(33,31,29,0.08);">
-          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: #211F1D; margin-bottom: 8px;">Solicitar orçamento</h3>
-          <p style="font-size: 13.5px; color: #5F5B57; margin-bottom: 30px; font-weight: 300;">Preencha e entraremos em contato pelo seu WhatsApp.</p>
-          <form id="ps-form" style="display: flex; flex-direction: column; gap: 15px;">
-            <div>
-              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-nome">Nome completo</label>
-              <input id="ps-nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #211F1D; outline: none; transition: border-color 0.24s ease;">
-            </div>
-            <div>
-              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-whatsapp">WhatsApp</label>
-              <input id="ps-whatsapp" name="whatsapp" type="tel" placeholder="(41) 99999-9999" autocomplete="tel" required style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #211F1D; outline: none; transition: border-color 0.24s ease;">
-            </div>
-            <div>
-              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-tipo">Tipo de cozinha?</label>
-              <select id="ps-tipo" name="tipo" style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #5F5B57; outline: none; cursor: pointer; appearance: none;">
-                <option value="">Selecione o tipo</option>
-                <option value="compacta">Cozinha compacta</option>
-                <option value="gourmet">Cozinha gourmet</option>
-                <option value="integrada">Cozinha Integrada</option>
-                <option value="outro">Outro</option>
-              </select>
-            </div>
-            <div>
-              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-ambiente">O ambiente está pronto?</label>
-              <select id="ps-ambiente" name="ambiente" style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #5F5B57; outline: none; cursor: pointer; appearance: none;">
-                <option value="">Selecione uma opção</option>
-                <option value="sim">Sim</option>
-                <option value="nao">Não</option>
-              </select>
-            </div>
-            <div id="ps-prazo-wrap" style="display: none;">
-              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-prazo">Se não, qual o prazo para ficar pronto?</label>
-              <input id="ps-prazo" name="prazo" type="text" placeholder="Ex: 60 dias, 3 meses" style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #211F1D; outline: none; transition: border-color 0.24s ease;">
-            </div>
-            <div>
-              <label style="display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #5F5B57; margin-bottom: 7px;" for="ps-investimento">Qual ideia de investimento?</label>
-              <select id="ps-investimento" name="investimento" style="width: 100%; background: #FCFCFC; border: 1px solid #EDEAE6; border-radius: 3px; padding: 13px 15px; font-size: 14px; color: #5F5B57; outline: none; cursor: pointer; appearance: none;">
-                <option value="">Selecione uma faixa</option>
-                <option value="20-40">20 à 40 mil</option>
-                <option value="40-60">40 à 60 mil</option>
-                <option value="80+">80 mil ou mais</option>
-              </select>
-            </div>
-            <button type="submit" class="ps-btn-gold" style="width: 100%; background: #25D366; color: #FFFFFF; font-size: 13.5px; font-weight: 600; letter-spacing: 0.5px; padding: 17px 24px; border-radius: 2px; transition: background 0.24s ease; margin-top: 6px; border: none; cursor: pointer; box-shadow: 0 10px 28px rgba(37,211,102,0.24);">Solicitar orçamento pelo WhatsApp</button>
-          </form>
-        </div>
       </div>
     </div>
   </div>
@@ -716,69 +634,6 @@ class Component extends DCLogic {
       });
     }
 
-    // Form: phone mask, validation, WhatsApp redirect
-    const form = document.getElementById('ps-form');
-    if (form) {
-      const phoneInput = document.getElementById('ps-whatsapp');
-      if (phoneInput) {
-        phoneInput.addEventListener('input', () => {
-          let v = phoneInput.value.replace(/\D/g, '').slice(0, 11);
-          if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
-          else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4,5})(\d*)$/, '($1) $2-$3');
-          else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)$/, '($1) $2');
-          phoneInput.value = v;
-        });
-      }
-
-      ['ps-nome', 'ps-whatsapp', 'ps-prazo'].forEach(id => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        el.addEventListener('focus', () => el.style.borderColor = 'rgba(217,181,82,0.8)');
-        el.addEventListener('blur', () => el.style.borderColor = '#EDEAE6');
-      });
-
-      const ambienteInput = document.getElementById('ps-ambiente');
-      const prazoWrap = document.getElementById('ps-prazo-wrap');
-      const prazoInput = document.getElementById('ps-prazo');
-
-      if (ambienteInput && prazoWrap && prazoInput) {
-        ambienteInput.addEventListener('change', () => {
-          const showPrazo = ambienteInput.value === 'nao';
-          prazoWrap.style.display = showPrazo ? 'block' : 'none';
-          if (!showPrazo) {
-            prazoInput.value = '';
-            prazoInput.style.borderColor = '#EDEAE6';
-          }
-        });
-      }
-
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        const nome = document.getElementById('ps-nome').value.trim();
-        const whatsapp = document.getElementById('ps-whatsapp').value.trim();
-        const tipo = document.getElementById('ps-tipo').value;
-        const ambiente = document.getElementById('ps-ambiente').value;
-        const prazo = document.getElementById('ps-prazo').value.trim();
-        const investimento = document.getElementById('ps-investimento').value;
-
-        let valid = true;
-        if (!nome) { document.getElementById('ps-nome').style.borderColor = '#A72828'; valid = false; }
-        if (!whatsapp || whatsapp.replace(/\D/g,'').length < 10) { document.getElementById('ps-whatsapp').style.borderColor = '#A72828'; valid = false; }
-        if (!valid) return;
-
-        const tipoMap = { compacta: 'cozinha compacta', gourmet: 'cozinha gourmet', integrada: 'cozinha integrada', outro: 'outro' };
-        const ambienteMap = { sim: 'sim', nao: 'não' };
-        const investimentoMap = { '20-40': '20 à 40 mil', '40-60': '40 à 60 mil', '80+': '80 mil ou mais' };
-
-        let msg = `Olá, vim do Google e gostaria de solicitar um orçamento.\n\nNome: ${nome}\nWhatsApp: ${whatsapp}`;
-        if (tipo) msg += `\nTipo de cozinha: ${tipoMap[tipo] || tipo}`;
-        if (ambiente) msg += `\nAmbiente pronto: ${ambienteMap[ambiente] || ambiente}`;
-        if (prazo) msg += `\nPrazo para ficar pronto: ${prazo}`;
-        if (investimento) msg += `\nIdeia de investimento: ${investimentoMap[investimento] || investimento}`;
-
-        window.open(`https://wa.me/5541995759191?text=${encodeURIComponent(msg)}`, '_blank');
-      });
-    }
   }
 }
 </script>
