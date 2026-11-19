@@ -180,23 +180,20 @@
         .btn-group.center { justify-content: center; }
         #process .process-card h4 { font-size: 1rem; letter-spacing: 0.5px; }
 
-        /* Portfólio – grade de 6 itens */
-        .lifestyle-gallery.portfolio-six { grid-auto-rows: 240px; }
-        .lifestyle-gallery.portfolio-six .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
-        .lifestyle-gallery.portfolio-six .gallery-item:nth-child(2) { grid-column: span 7; grid-row: span 1; }
-        .lifestyle-gallery.portfolio-six .gallery-item:nth-child(3) { grid-column: span 4; grid-row: span 1; }
-        .lifestyle-gallery.portfolio-six .gallery-item:nth-child(4) { grid-column: span 3; grid-row: span 1; }
-        .lifestyle-gallery.portfolio-six .gallery-item:nth-child(5) { grid-column: span 7; grid-row: span 1; }
-        .lifestyle-gallery.portfolio-six .gallery-item:nth-child(6) { grid-column: span 5; grid-row: span 1; }
+        /* Portfólio – mosaico (masonry) preservando proporção das fotos */
+        .portfolio-grid { column-count: 4; column-gap: 16px; }
+        .portfolio-grid .gallery-item { display: block; break-inside: avoid; margin-bottom: 16px; border-radius: 12px; }
+        .portfolio-grid .gallery-item img { display: block; width: 100%; height: auto; }
         @media (max-width: 992px) {
-            .lifestyle-gallery.portfolio-six { grid-auto-rows: 200px; }
-            .lifestyle-gallery.portfolio-six .gallery-item { grid-column: span 3 !important; grid-row: span 1 !important; }
-            .lifestyle-gallery.portfolio-six .gallery-item:nth-child(1) { grid-column: span 6 !important; grid-row: span 2 !important; }
+            .portfolio-grid { column-count: 3; column-gap: 12px; }
+            .portfolio-grid .gallery-item { margin-bottom: 12px; }
+        }
+        @media (max-width: 768px) {
+            .portfolio-grid { column-count: 2; }
         }
         @media (max-width: 576px) {
-            .lifestyle-gallery.portfolio-six { grid-auto-rows: 250px; }
-            .lifestyle-gallery.portfolio-six .gallery-item,
-            .lifestyle-gallery.portfolio-six .gallery-item:nth-child(1) { grid-column: span 1 !important; grid-row: span 1 !important; }
+            .portfolio-grid { column-gap: 8px; }
+            .portfolio-grid .gallery-item { margin-bottom: 8px; border-radius: 8px; }
             .hero-title { font-size: 1.7rem; }
             .hero-lead { font-size: 1.2rem; }
             .authority-list li { padding: 0 14px; font-size: 0.75rem; letter-spacing: 1px; }
@@ -397,24 +394,66 @@
                 <p>Ambientes completos, integrados e personalizados para valorizar arquitetura, funcionalidade e estilo.</p>
             </div>
 
-            <div class="lifestyle-gallery portfolio-six">
+            <div class="portfolio-grid">
                 <div class="gallery-item reveal-on-scroll">
-                    <img loading="lazy" src="lifestyle-kitchen.jpg" alt="Cozinha Gourmet Planejada">
+                    <img loading="lazy" src="portfolio/webp/portfolio-01.webp" alt="Armário planejado com nichos iluminados – Projeto Premier Stimmo">
                 </div>
-                <div class="gallery-item reveal-on-scroll delay-1">
-                    <img loading="lazy" src="lifestyle-mixed-1.jpg" alt="Projeto Exclusivo Premier Stimmo">
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-02.webp" alt="Cozinha com bancada preta e banquetas – Projeto Premier Stimmo">
                 </div>
-                <div class="gallery-item reveal-on-scroll delay-2">
-                    <img loading="lazy" src="lifestyle-living-dining.jpg" alt="Ambientes Integrados">
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-03.webp" alt="Cozinha integrada com mesa de jantar – Projeto Premier Stimmo">
                 </div>
-                <div class="gallery-item reveal-on-scroll delay-3">
-                    <img loading="lazy" src="lifestyle-bedroom.jpg" alt="Suíte Master">
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-04.webp" alt="Cozinha planejada em madeira e vidro canelado – Projeto Premier Stimmo">
                 </div>
-                <div class="gallery-item reveal-on-scroll delay-1">
-                    <img loading="lazy" src="lifestyle-living-sofa.jpg" alt="Sala de Estar Confortável">
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-05.webp" alt="Cozinha com ilha e coifa preta – Projeto Premier Stimmo">
                 </div>
-                <div class="gallery-item reveal-on-scroll delay-2">
-                    <img loading="lazy" src="lifestyle-kids-1.jpg" alt="Detalhes Planejados">
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-06.webp" alt="Cozinha com bancada e armários suspensos – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-07.webp" alt="Cozinha compacta verde com TV – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-08.webp" alt="Dormitório com cabeceira em madeira – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-09.webp" alt="Cozinha com bancada e plantas – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-10.webp" alt="Dormitório com painel e escrivaninha planejada – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-11.webp" alt="Ambiente com iluminação em anel e home office – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-12.webp" alt="Cozinha com marcenaria laranja e ilha – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-13.webp" alt="Cozinha gourmet com bancada em mármore – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-14.webp" alt="Cozinha com bancada e nichos iluminados – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-15.webp" alt="Sala de jantar com painel e marcenaria – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-16.webp" alt="Sala com adega e mesa de jantar – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-17.webp" alt="Cozinha com ilha preta e marcenaria – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-18.webp" alt="Sala integrada com painel de TV – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-19.webp" alt="Cozinha branca com marcenaria em madeira – Projeto Premier Stimmo">
+                </div>
+                <div class="gallery-item reveal-on-scroll">
+                    <img loading="lazy" src="portfolio/webp/portfolio-20.webp" alt="Hall com nicho e iluminação curva – Projeto Premier Stimmo">
                 </div>
             </div>
         </div>
